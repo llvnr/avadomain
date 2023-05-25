@@ -14,35 +14,44 @@ use App\Models\User;
 |
 */
 
-// Route::post('/uuid', function() {
+Route::group([
+    'prefix' => 'avadomain'
+], function ($router) {
 
-//     // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
-//     $data = $data ?? random_bytes(16);
-//     assert(strlen($data) == 16);
+    Route::post('/checkdomain', function() {
 
-//     // Set version to 0100
-//     $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
-//     // Set bits 6-7 to 10
-//     $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+        $domain = request("domain");
+    
+        // Récupérer l'adresse IP associée au domaine
+        $ip = gethostbyname($domain);
+        $clientIP = request()->ip();
+    
+        // $createUtilisation = AvadomainUtilisation::create([
+        //     "user_id" => auth()->user()->id,
+        //     "ip" => $clientIP,
+        //     "domaine" => $domain
+        // ]);
+    
+        // Vérifier si l'adresse IP est celle d'un serveur de noms
+        if ($ip == $domain) {
+            
+            return response()->json([
+                "status" => true,
+                "result" => "Available"
+            ]);
+    
+        } else {
+    
+            return response()->json([
+                "status" => false,
+                "result" => "Not Available"
+            ]);
+    
+        }
+    
+    });
 
-//     // Output the 36 character UUID.
-//     $uuid = vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
-
-//     $checkUser = User::where('uuid', $uuid)->exists();
-
-//     if($checkUser){
-//         return response()->json([
-//             "status" => false,
-//             "message" => "Une erreur est survenue, veuillez recommencer..."
-//         ]);
-//     } else {
-//         return response()->json([
-//             "status" => true,
-//             "uuid" => $uuid
-//         ]);
-//     }
-
-// });
+});
 
 // Route::group([
 //     'middleware' => 'api',

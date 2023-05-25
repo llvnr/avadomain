@@ -9,4 +9,10 @@
     --shellauth-load-card-border-top: 1px solid #F1F0F9;
     --cadre-service-background-color: #F6F7FD;
     --cadre-service-color: black;
+    /* APP */
+    --avadomain-label-name: black;
+    --avadomain-inputname-border: black;
+    --avadomain-inputname-background: white;
+    --avadomain-inputname-color: black;
+    /* APP */
 }

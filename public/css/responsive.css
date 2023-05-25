@@ -16,4 +16,31 @@
         display: none;
     }
 
+    .container__application {
+        padding-top: 1em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    .Avadomain__input-name {
+        width: 98%;
+        height: 2em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .Avadomain__btn-search {
+        width: 100%;
+        height: 2.4em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .Avadomain__grid {
+        margin-top: 0.5em;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 100%);
+        gap: 5px;
+    }
+
 }

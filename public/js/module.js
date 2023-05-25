@@ -5,6 +5,6 @@ export default {
     description: "Un service qui permet de vérifier la disponibilité d'un nom de domaine.",
     footer: "COPYRIGHT 2023 - AVADOMAIN",
     keywords: [],
-    enabledAnalytics: false,
-    codeG4A: ''
+    enabledAnalytics: true,
+    codeG4A: 'G-Q5G7T2HNW1'
 }
